@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// import { useState } from "react";
+import "./App.css";
+import Table from "./Table/Table.js";
+import Modal from "./Modal/Modal.js";
+
+import { useSelector, useDispatch } from "react-redux";
+import { openModal, setAdd } from "./actions/modalActions.js";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const newRecordButtonHandler = () => {
+    dispatch(setAdd());
+    dispatch(openModal());
+  };
+
+  const modalState = useSelector((state) => state.modal);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {modalState.isOpen ? <Modal /> : ""}
+      <h1>Users</h1>
+      <Table />
+      <button className="button" onClick={newRecordButtonHandler}>
+        Add new user
+      </button>
     </div>
   );
 }

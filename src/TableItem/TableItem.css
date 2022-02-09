@@ -1,0 +1,25 @@
+td{
+    padding:0.5rem;
+    border:1px solid black;
+    text-align: center;
+}
+td:last-of-type button{
+    padding:0.5rem 0.7rem;
+    background:transparent;
+    border:none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    font-weight: bold;
+    color:white;
+    transition: transform 0.2s ease;
+}
+td:last-of-type button.button-edit{
+    background-color:  #24a0ed ;
+    border:2px solid #1b6fa3
+}
+td:last-of-type button.button-delete{
+    background-color:  #d11a2a;
+    border:2px solid #92131d
+}
